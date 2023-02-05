@@ -16,10 +16,10 @@ jobs:
     steps:
       - name: github repo checkout
         uses: actions/checkout@v3
-      - name: setup jdk 11
+      - name: setup jdk 17
         uses: actions/setup-java@v3
         with:
-          java-version: '11'
+          java-version: '17'
           distribution: 'adopt'
           cache: maven
       - name: build with maven
