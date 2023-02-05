@@ -33,7 +33,7 @@ jobs:
           node-version: 14
       - name: install Snyk CLI
         run: npm install -g snyk
-      - name: SYNK auth
+      - name: SYNK auth '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'
         run: snyk auth
       - name: SYNK monitor
         run: snyk monitor
