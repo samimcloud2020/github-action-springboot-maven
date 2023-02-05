@@ -33,6 +33,8 @@ jobs:
           node-version: 14
       - name: install Snyk CLI
         run: npm install -g snyk
+      - name: SYNK auth
+        run: snyk auth
       - name: run Snyk Open Source Test
         run: snyk test
       - name: run Snyk Code Test
