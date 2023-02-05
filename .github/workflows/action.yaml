@@ -1,4 +1,4 @@
-name: CI Maven project
+name: CI Maven project1
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: 
   label:
