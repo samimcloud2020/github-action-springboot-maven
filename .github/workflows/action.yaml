@@ -21,12 +21,23 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-          cache: maven
       - name: build with maven
         run: |
           mvn -B package --file pom.xml
           mkdir artifacts && cp target/*.jar artifacts
-          cd artifacts && ls
+          cd artifacts && ls    
+      - name: Set up Node 14
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - name: install Snyk CLI
+        run: npm install -g snyk
+      - name: run Snyk Open Source Test
+        run: snyk test
+      - name: run Snyk Code Test
+        run: snyk code test
+          cache: maven
+             
       - name: save artifacts
         uses: actions/upload-artifact@v3  
         with:
