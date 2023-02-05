@@ -28,4 +28,7 @@ jobs:
           mkdir artifacts && cp target/*.jar artifacts
           cd artifacts && ls
       - name: save artifacts
-        uses: actions/upload-artifact@v3              
+        uses: actions/upload-artifact@v3  
+        with:
+          name: github-actions-artifacts
+          path: artifacts
