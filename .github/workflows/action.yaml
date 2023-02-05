@@ -33,10 +33,7 @@ jobs:
           node-version: 14
       - name: install Snyk CLI
         run: npm install -g snyk
-      - name: synk auth
-        run: snyk auth
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+     
         
       - name: SYNK monitor
         run: snyk monitor
