@@ -35,6 +35,8 @@ jobs:
         run: npm install -g snyk
       - name: SYNK auth 
         run: snyk auth
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: SYNK monitor
         run: snyk monitor
 
