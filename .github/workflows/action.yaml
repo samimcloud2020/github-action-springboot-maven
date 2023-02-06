@@ -34,19 +34,25 @@ jobs:
           node-version: 14
       - name: install Snyk CLI
         run: npm install -g snyk
-      - name: snyk auth
-        run: snyk auth 'fe2a9ced-deb2-4a8b-b5a3-99677bfc26cf'
+      
      
       - name: run Snyk Open Source Test
         run: snyk test -d
         continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         
       - name: run Snyk Code Test
         run: snyk code test
         continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          
       - name: SNYK monitor
         run: snyk monitor
         continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
        
       - name: save artifacts
         uses: actions/upload-artifact@v3  
